@@ -3,7 +3,7 @@ package jiwon._0313;
 import java.util.*;
 import java.io.*;
 
-public class SolutionBaekJoon3190 {
+public class BOJ_3190_뱀 {
 	
 	static class Command {
 		int time;
