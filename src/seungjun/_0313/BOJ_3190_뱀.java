@@ -10,7 +10,7 @@
  * 처음엔 bfs로 머리부터 타고 들어가서 꼬리를 자르려고 했지만 뱀이 다 붙어있는 경우에 문제 발생
  * queue에 뱀의 좌표를 넣어서 가장 먼저 들어옴 뱀의 부위를 poll 하면서 이동하는 것으로 해결 
  */
-package seungjun;
+package seungjun._0313;
 
 import java.io.BufferedReader;
 import java.io.IOException;
