@@ -49,7 +49,7 @@ public class BOJ_17070_파이프옮기기1 {
 			return;
 		}
 
-		// 현재 가로로 위치
+		// 현재 가로로 위치하는 경우
 		if (dir == 1) {
 			if (routeCheck01(r, c)) { // →
 				recursive(r, c + 1, 1);
