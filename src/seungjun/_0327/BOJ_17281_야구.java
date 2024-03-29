@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.Arrays;
-import java.util.Deque;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
@@ -33,24 +32,24 @@ public class BOJ_17281_야구 {
 		v = new boolean[9];
 		ans = Integer.MIN_VALUE;
 		permutation(0);
-		
 		System.out.println(ans);
 	}
 
 	private static void permutation(int k) {
 		if (k == 9) {
-//			System.out.println(Arrays.toString(sel));
+			System.out.println(Arrays.toString(sel));
 			// 해당 타순으로 시뮬레이션
-			simulation();
-			ans = Math.max(ans, curScore);
+//			simulation();
+//			ans = Math.max(ans, curScore);
+			return;
+		}
+
+		if (k == 3) {
+			permutation(k + 1);
 			return;
 		}
 
 		for (int i = 1; i < 9; i++) {
-			if (k == 3) {
-				sel[k] = 0;
-				permutation(k + 1);
-			}
 			if (!v[i]) {
 				sel[k] = i;
 				v[i] = true;
@@ -70,11 +69,11 @@ public class BOJ_17281_야구 {
 		for (int i = 0; i < N; i++) {
 			int outCnt = 0;
 			q.clear();
-			
+
 			while (true) {
 				// 이번 타석의 선수 인덱스
 				int hit = player[i][sel[j]];
-				
+
 				if (hit == 0) {
 					outCnt++;
 					if (outCnt == 3) {
@@ -84,11 +83,12 @@ public class BOJ_17281_야구 {
 						}
 						break;
 					}
-				} else if(hit == 4) {
+				} else if (hit == 4) {
 					curScore += q.size() + 1;
 					q.clear();
 				} else {
-					for (int k = 0; k < q.size(); k++) {
+					int size = q.size();
+					for (int k = 0; k < size; k++) {
 						int el = q.poll();
 						if (el + hit >= 4) {
 							curScore++;
@@ -98,16 +98,15 @@ public class BOJ_17281_야구 {
 					}
 					q.offer(hit);
 				}
-				
+
 				j++;
 				if (j == 9) {
 					j = 0;
 				}
 			}
-			
-			
+
 		}
-		
+
 	}
 
 }
